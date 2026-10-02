@@ -1,0 +1,54 @@
+.settings-links { display:grid; gap:9px; margin-bottom:13px; }
+.settings-links button { display:flex; flex-direction:column; align-items:flex-start; justify-content:center; gap:5px; min-height:62px; padding:12px 14px; background:#24362b; border:1px solid #4c6445; border-radius:8px; text-align:left; font-size:13px; color:var(--mint); }
+.settings-links small { color:var(--muted); font-size:10px; font-weight:400; }
+.comfort-content { padding:0 26px 30px; }
+.comfort-content>.primary-button { margin-top:12px; }
+.comfort-heading { padding-top:10px; }
+.comfort-panel { padding:17px; border:1px solid var(--line); border-radius:10px; background:#17221c; margin-bottom:14px; }
+.comfort-panel h3 { font-size:15px; font-weight:500; margin:0 0 10px; }
+.comfort-panel p,.comfort-note { color:var(--muted); font-size:11px; line-height:1.85; margin:9px 0; }
+.comfort-panel button:disabled,.comfort-select:disabled { opacity:.45; cursor:default; }
+.comfort-panel .field-label { font-size:11px; margin-top:18px; }
+.comfort-select { width:100%; min-height:44px; background:#101914; border:1px solid #42533c; border-radius:6px; padding:10px; color:var(--ink); font:inherit; font-size:12px; }
+.comfort-panel .setting-row { padding:15px 0; gap:10px; }
+.comfort-panel .setting-row>span { font-size:12px; }
+.comfort-panel .setting-row small { line-height:1.7; }
+.comfort-panel .toggle { flex-shrink:0; }
+.lab-track { position:relative; height:105px; background:repeating-linear-gradient(90deg,#101a16 0,#101a16 32.8%,#34412f 33%,#101a16 33.5%); border:1px solid #3f523c; border-radius:7px; touch-action:none; overflow:hidden; margin:14px 0; }
+.lab-ship { position:absolute; left:50%; bottom:24px; transform:translateX(-50%); color:var(--mint); font-size:26px; transition:left .09s ease; pointer-events:none; }
+.lab-track small { position:absolute; bottom:6px; left:0; right:0; font-size:9px; text-align:center; color:var(--muted); pointer-events:none; }
+.lab-ship.jumping { animation:labJump .65s ease-in-out; }
+@keyframes labJump { 50% { transform:translate(-50%,-33px); } }
+.lab-controls .control-button { min-width:0; }
+.control-layout[data-layout="left"] { grid-template-columns:1.45fr 1fr 1fr; }
+.control-layout[data-layout="right"] { grid-template-columns:1fr 1fr 1.45fr; }
+.control-layout[data-layout="left"] .jump-button { order:-1; }
+.control-layout[data-layout="right"] .jump-button { order:3; }
+.control-layout[data-size="large"] .control-button { height:90px; }
+#play .control-deck { padding-bottom:calc(13px + var(--control-lift,0px)); }
+.lab-controls { padding-bottom:var(--control-lift,0px); }
+.backup-summary { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:12px 0; }
+.backup-summary div { padding:11px 5px; background:#233229; border-radius:6px; text-align:center; }
+.backup-summary strong { display:block; font:20px Bahnschrift,monospace; color:var(--mint); }
+.backup-summary span { display:block; font-size:9px; color:var(--muted); margin-top:6px; }
+.backup-text { width:100%; min-height:100px; resize:vertical; background:#0e1914; border:1px solid #3b503d; border-radius:7px; color:#d2e2ca; padding:10px; font:11px/1.6 Consolas,monospace; user-select:text; -webkit-user-select:text; }
+.backup-buttons { display:grid; grid-template-columns:1fr 1fr; gap:9px; margin-top:12px; }
+.backup-buttons button { min-height:46px; padding:10px; border:1px solid #4d6549; background:#2b4129; border-radius:7px; color:var(--mint); font-size:12px; }
+.backup-buttons button:disabled { opacity:.5; }
+.backup-status { margin:12px 0; padding:11px; border:1px solid #536849; border-radius:7px; font-size:11px; line-height:1.7; color:#c4e7ab; overflow-wrap:anywhere; }
+.backup-status.error { border-color:#926354; color:#ffc2a6; }
+.backup-status:empty { display:none; }
+.modal .import-warning { font-size:11px; margin:13px 0 0; color:#edc592; }
+.modal .import-detail { font-size:11px; line-height:1.8; margin:12px 0; }
+.modal .import-source { color:#9dc2ba; font-size:10px; overflow-wrap:anywhere; }
+.comfort-return { position:sticky; top:0; margin:0; padding:0 26px; background:#101615; z-index:3; }
+@media(max-height:720px) {
+  #play .control-deck { padding-bottom:calc(8px + var(--control-lift,0px)); }
+  .control-layout[data-size="large"] .control-button { height:78px; }
+}
+@media(max-width:370px) {
+  .comfort-content { padding:0 20px 24px; }
+  .comfort-panel { padding:14px; }
+  .comfort-return { padding:0 20px; }
+}
+@media(prefers-reduced-motion:reduce) { .lab-ship { transition:none; } .lab-ship.jumping { animation:none; transform:translate(-50%,-24px); } }

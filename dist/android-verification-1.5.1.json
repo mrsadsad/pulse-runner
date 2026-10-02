@@ -1,0 +1,120 @@
+{
+    "signingKeyUnchanged":  true,
+    "versionCode":  7,
+    "permissions":  [
+                        "android.permission.VIBRATE"
+                    ],
+    "version":  "1.5.1",
+    "signingKeySha256Before":  "1801b030d317fe178a8c8c1937475dcda7a0059df8c3ef5d9b1cdaceecf6e9ea",
+    "signatureVerified":  true,
+    "deviceExecutionTested":  false,
+    "signingKeySha256After":  "1801b030d317fe178a8c8c1937475dcda7a0059df8c3ef5d9b1cdaceecf6e9ea",
+    "sha256":  "b50dfbb11632459634d436533992f667c0d97e99e538fa9e6ff0a4ca040d271c",
+    "package":  "com.pulserunner.game",
+    "bytes":  104257,
+    "zipAlignmentVerified":  true,
+    "apk":  "PulseRunner-1.5.1.apk",
+    "sameCertificateAsOriginal":  true,
+    "minSdk":  24,
+    "assets":  [
+                   {
+                       "matchesSource":  true,
+                       "file":  "audio.js",
+                       "bytes":  6373
+                   },
+                   {
+                       "matchesSource":  true,
+                       "file":  "backup.js",
+                       "bytes":  9529
+                   },
+                   {
+                       "matchesSource":  true,
+                       "file":  "challenges.js",
+                       "bytes":  9749
+                   },
+                   {
+                       "matchesSource":  true,
+                       "file":  "collection.css",
+                       "bytes":  4660
+                   },
+                   {
+                       "matchesSource":  true,
+                       "file":  "comfort.css",
+                       "bytes":  4568
+                   },
+                   {
+                       "matchesSource":  true,
+                       "file":  "controls.js",
+                       "bytes":  2461
+                   },
+                   {
+                       "matchesSource":  true,
+                       "file":  "engine.js",
+                       "bytes":  19048
+                   },
+                   {
+                       "matchesSource":  true,
+                       "file":  "expedition.css",
+                       "bytes":  2033
+                   },
+                   {
+                       "matchesSource":  true,
+                       "file":  "expedition.js",
+                       "bytes":  8044
+                   },
+                   {
+                       "matchesSource":  true,
+                       "file":  "game.js",
+                       "bytes":  69856
+                   },
+                   {
+                       "matchesSource":  true,
+                       "file":  "index.html",
+                       "bytes":  20465
+                   },
+                   {
+                       "matchesSource":  true,
+                       "file":  "levels.js",
+                       "bytes":  9783
+                   },
+                   {
+                       "matchesSource":  true,
+                       "file":  "profile.js",
+                       "bytes":  1053
+                   },
+                   {
+                       "matchesSource":  true,
+                       "file":  "progression.css",
+                       "bytes":  5372
+                   },
+                   {
+                       "matchesSource":  true,
+                       "file":  "renderer.js",
+                       "bytes":  24858
+                   },
+                   {
+                       "matchesSource":  true,
+                       "file":  "replay.js",
+                       "bytes":  14852
+                   },
+                   {
+                       "matchesSource":  true,
+                       "file":  "rewards.js",
+                       "bytes":  3922
+                   },
+                   {
+                       "matchesSource":  true,
+                       "file":  "style.css",
+                       "bytes":  13143
+                   },
+                   {
+                       "matchesSource":  true,
+                       "file":  "upgrade.css",
+                       "bytes":  4640
+                   }
+               ],
+    "deviceExecutionNote":  "This build script validates packaging only. See README-android.md for device verification status.",
+    "certificateSha256":  "1367fee5f58e70bad562bf0ad47394b58a570c482d397b8e63578e380d0b7088",
+    "originalReleaseCertificateSha256":  "1367fee5f58e70bad562bf0ad47394b58a570c482d397b8e63578e380d0b7088",
+    "targetSdk":  36
+}

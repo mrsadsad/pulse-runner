@@ -1,0 +1,67 @@
+/* Visual and interaction refinements for v1.1. */
+#app[data-chapter="2"] { --bg:#0b1922; --panel:#172f3b; --line:#304c58; --mint:#9ee9ee; --muted:#94adb6; }
+#app[data-chapter="3"] { --bg:#1b1425; --panel:#302336; --line:#55405d; --mint:#e1b6ff; --muted:#b7a3bf; }
+.home-screen, .page-screen, .play-screen { background:var(--bg); }
+.modal { background:var(--panel); border-color:var(--line); }
+.control-deck { background:var(--bg); border-color:var(--line); }
+.control-button { background:var(--panel); border-color:var(--line); }
+.control-button.jump-button { background:var(--mint); border-color:var(--mint); color:#132119; }
+.control-button.pressed { border-color:var(--mint); filter:brightness(1.22); }
+.home-progress { height:2px; background:var(--line); margin:0 0 13px; border-radius:2px; overflow:hidden; }
+.home-progress span { display:block; height:100%; background:var(--mint); }
+.home-stats, .text-button { font-size:10px; }
+.art-caption { color:var(--muted); font-size:10px; }
+.progress-track { position:relative; }
+#bestMarker { position:absolute; top:-2px; height:6px; width:2px; background:#f3c679; opacity:.8; transform:translateX(-2px); }
+.run-stats { position:absolute; top:40px; left:24px; right:24px; display:flex; align-items:center; justify-content:space-between; pointer-events:none; }
+.run-stats>div { display:flex; align-items:baseline; gap:9px; }
+#scoreCount { font-family:Bahnschrift,"Arial Narrow",sans-serif; font-size:27px; font-weight:500; letter-spacing:1px; color:var(--ink); }
+#comboCount { color:var(--muted); font-size:10px; letter-spacing:1px; }
+#comboCount.active { color:var(--mint); font-size:14px; font-weight:600; text-shadow:0 0 14px color-mix(in srgb,var(--mint) 50%,transparent); }
+.practice-badge { position:absolute; left:50%; bottom:34px; transform:translateX(-50%); white-space:nowrap; padding:5px 10px; font-size:10px; letter-spacing:1px; color:#f1d191; background:#19180edb; border:1px solid #71643e; border-radius:4px; pointer-events:none; }
+.impact-label { position:absolute; left:0; right:0; top:48%; text-align:center; font-size:12px; font-weight:600; letter-spacing:2px; color:var(--mint); text-shadow:0 2px 8px #000; opacity:0; transform:translateY(7px); transition:opacity .13s,transform .16s; pointer-events:none; }
+.impact-label.show { opacity:1; transform:translateY(0); }
+.impact-label[data-kind="crash"] { color:#ffd1b0; }
+.impact-label[data-kind="perfect"] { color:#ffe0a3; }
+.control-topline { font-size:9px; }
+.control-button>span { font-size:10px; }
+.control-button { transition:transform .07s,filter .08s; }
+#jumpStatus.queued { color:#ffd997; }
+.keyboard-hint { font-size:9px; }
+.arena-label { font-size:9px; letter-spacing:1.2px; }
+.chapter:nth-child(2) .chapter-title { color:#9ee9ee; }
+.chapter:nth-child(3) .chapter-title { color:#e1b6ff; }
+.level-card small { font-size:9px; }
+.level-card.locked { opacity:.65; }
+.setting-row { padding:14px 0; gap:15px; }
+.setting-row>span { max-width:calc(100% - 48px); }
+.setting-row small { line-height:1.6; }
+.toggle { flex-shrink:0; }
+.modal .settings-note { font-size:10px; margin:20px 0 0; }
+.personal-best { margin:15px 0 0!important; font-size:11px!important; }
+.result-score strong { color:var(--mint); font-size:25px; }
+.result-score strong small { font-family:"Microsoft YaHei",sans-serif; font-size:10px; color:var(--muted); }
+.result-score + .result-grid { margin-top:0; border-top:0; }
+.result-summary { color:var(--muted); font-size:10px; margin-top:15px; }
+.practice-result { border:1px solid #6d6749; padding:10px; color:#eed39b; font-size:10px; border-radius:5px; }
+.modal { overscroll-behavior:contain; }
+.quiet-effects *, .quiet-effects *:before { animation:none!important; transition:none!important; }
+.quiet-effects #comboCount.active { text-shadow:none; }
+@media(max-height:720px) {
+  .run-stats { top:36px; }
+  #scoreCount { font-size:22px; }
+  .modal .result-number { font-size:56px; margin:10px 0 16px; }
+  .modal .stars { margin:16px 0; }
+  .modal .stars svg { width:27px; height:27px; }
+  .modal .result-grid { padding:12px 0; }
+  .modal .primary-button { margin-top:15px; }
+  .setting-row { padding:11px 0; }
+  .home-progress { margin-bottom:10px; }
+}
+@media(min-width:600px) {
+  .keyboard-hint { font-size:0; }
+  .keyboard-hint:after { content:"← → / A D 变道 · 空格跳跃 · P 暂停 · 结算时 R 重试"; font-size:9px; }
+}
+.author-credit { color:var(--muted); font-size:11px; line-height:1.5; letter-spacing:.8px; text-align:center; }
+.home-credit { margin:6px 0 0; }
+.modal .settings-credit { color:var(--mint); font-size:11px; margin:0 0 16px; text-align:left; letter-spacing:.8px; }

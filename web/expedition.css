@@ -1,0 +1,29 @@
+/* New rules share the original game's typography and controls. */
+.expedition-card { border-color:#6b6241; background:linear-gradient(145deg,#2a2b20,#18221c 70%); }
+.expedition-card .card-kicker { color:#efd49a; }
+.expedition-card .primary-button { background:#edcf91; }
+.endless-card { border-color:#416d6c; background:linear-gradient(145deg,#203734,#18221c 75%); }
+.endless-card .card-kicker { color:#a3e2df; }
+.endless-card .primary-button { background:#a3e2df; }
+.mechanic-legend { display:flex; flex-wrap:wrap; gap:7px; margin:15px 0; }
+.mechanic-legend span { border:1px solid #5f6345; border-radius:4px; padding:6px 7px; color:#d3d9a4; font-size:10px; }
+.mechanic-legend span:last-child { color:#f1cf84; border-color:#736341; }
+#trialBest { margin-top:13px; }
+.endless-card .challenge-record { line-height:1.9; }
+.mechanic-guide { border:1px solid #5c6547; border-radius:8px; padding:12px; margin-top:14px; background:#1c2a22; }
+.mechanic-guide strong { display:block; font-size:11px; color:#efd59a; margin-bottom:7px; }
+.mechanic-guide p { margin:0 0 7px!important; font-size:10px!important; line-height:1.8; }
+.mechanic-guide p:last-child { margin-bottom:0!important; }
+.endless-distance { color:#a3e2df; }
+.result-grid .bonus-count { color:#f1cf84; }
+.mechanic-hint { position:absolute; left:18px; right:18px; bottom:35px; text-align:center; color:#f2d49a; font-size:10px; line-height:1.5; pointer-events:none; padding:5px 7px; background:#09130fc9; border:1px solid #8a8c624d; border-radius:5px; }
+.mechanic-hint:empty { display:none; }
+.play-screen.has-mechanics .practice-badge { bottom:70px; }
+.play-screen.is-endless #bestMarker { display:none; }
+.play-screen.is-endless .progress-track>span { background:#a3e2df; }
+.play-screen.is-endless #runPercent { color:#a3e2df; font-size:12px; font-family:Bahnschrift,monospace; }
+.session-code button { min-height:44px; }
+@media(max-height:720px) {
+  .mechanic-hint { bottom:30px; font-size:9px; padding:4px; }
+  .play-screen.has-mechanics .practice-badge { bottom:63px; }
+}

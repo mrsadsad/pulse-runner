@@ -1,0 +1,16 @@
+{
+  "name": "pulse-runner",
+  "version": "1.5.1",
+  "private": true,
+  "description": "脉冲穿行：15关安卓离线反应闯关游戏",
+  "scripts": {
+    "test": "node --test tests/engine.test.cjs tests/challenges.test.cjs tests/progression-save.test.cjs tests/expedition.test.cjs tests/expedition-goals.test.cjs tests/replay.test.cjs tests/rewards.test.cjs tests/profile.test.cjs tests/controls.test.cjs tests/backup.test.cjs",
+    "test:browser": "node --test --test-concurrency=1 tests/browser.test.cjs tests/expedition-browser.test.cjs tests/replay-browser.test.cjs tests/comfort-browser.test.cjs",
+    "test:audio": "node --test tests/audio.test.cjs",
+    "build:android": "powershell -NoProfile -ExecutionPolicy Bypass -File android/build.ps1",
+    "preview": "node preview.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.63.0"
+  }
+}

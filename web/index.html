@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta name="theme-color" content="#101615">
+  <meta name="description" content="脉冲穿行：15关离线反应力挑战。变道、跳跃，穿过最后一道光。">
+  <title>脉冲穿行 · PULSE RUNNER</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="upgrade.css">
+  <link rel="stylesheet" href="progression.css">
+  <link rel="stylesheet" href="expedition.css">
+  <link rel="stylesheet" href="collection.css">
+  <link rel="stylesheet" href="comfort.css">
+</head>
+<body>
+<div id="app">
+  <svg aria-hidden="true" class="symbols" xmlns="http://www.w3.org/2000/svg"><defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="m14 5-7 7 7 7"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="m10 5 7 7-7 7"/></symbol>
+    <symbol id="i-jump" viewBox="0 0 24 24"><path d="M12 19V5m-6 6 6-6 6 6M5 21h14"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="M5 4v16M12 4v16M19 4v16M2 8h6m1 8h6m1-8h6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 5v2"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></symbol>
+    <symbol id="i-gem" viewBox="0 0 24 24"><path d="m12 3 8 9-8 9-8-9 8-9Z"/><path d="m8 12 4-5"/></symbol>
+    <symbol id="i-retry" viewBox="0 0 24 24"><path d="M4 10a8 8 0 1 1 1 8M4 4v6h6"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9L12 3Z"/></symbol>
+  </defs></svg>
+
+  <section id="home" class="screen home-screen">
+    <header class="topbar"><div class="brand"><span class="brand-mark"></span>PULSE<span class="brand-light"> / RUNNER</span></div><button class="icon-button" data-do="settings" aria-label="游戏设置"><svg><use href="#i-settings"/></svg></button></header>
+    <div class="home-intro"><div class="eyebrow"><span class="live-dot"></span> 15 STAGES · ONE WAY FORWARD</div><h1>脉冲<span class="title-outline">穿行</span><span class="orange-dot">.</span></h1><p>世界不会慢下来。<br>你只需要，比下一道障碍更快。</p></div>
+    <div class="hero-art"><canvas id="heroCanvas" aria-label="通往发光传送门的三条未来轨道"></canvas><span class="art-coordinate">SECTOR 01—15</span><span class="art-caption" id="themeLabel">苔原信号</span><span class="art-cross">+</span></div>
+    <div class="home-bottom"><div class="continue-meta"><div><span class="tiny-label">下一次挑战</span><strong id="continueLabel">01 / 初醒</strong></div><span class="tag" id="homeDifficulty">反应训练</span></div>
+    <div class="home-progress"><span id="homeProgress"></span></div><button class="primary-button" data-do="continue"><span>开始穿行</span><svg><use href="#i-arrow"/></svg></button>
+    <div class="home-actions"><button class="secondary-button" data-do="levels"><svg><use href="#i-grid"/></svg><span>选择关卡</span><span class="button-note" id="unlockCount">01 / 15</span></button><button class="secondary-button challenge-entry" data-do="hub"><svg><use href="#i-star"/></svg><span>挑战中心</span></button></div>
+    <div class="home-stats"><span><i class="live-dot"></i> 离线就绪</span><span id="homeStars">0 / 45 星</span><button class="text-button" data-do="help">怎么玩 ↗</button></div><footer class="author-credit home-credit">made in yongchao</footer></div>
+  </section>
+
+  <section id="levels" class="screen page-screen hidden">
+    <header class="topbar"><button class="icon-button" data-do="home" aria-label="返回首页"><svg><use href="#i-left"/></svg></button><span class="eyebrow">THE FIFTEEN</span><span class="small-counter" id="levelStars">0 / 45 ★</span></header>
+    <div class="page-heading"><div class="eyebrow">循序解锁 · 逐关突破</div><h2>穿过你的极限<span class="orange-dot">.</span></h2><p>完成一关，开启下一段旅程。<br>收集能量晶体，挑战全三星。</p></div>
+    <div id="levelGrid" class="chapters"></div>
+    <footer class="page-footer">不需要一次完美，只需要再试一次。</footer>
+  </section>
+
+  <section id="hub" class="screen page-screen hidden">
+    <header class="topbar"><button class="icon-button" data-do="home" aria-label="返回首页"><svg><use href="#i-left"/></svg></button><span class="eyebrow">BEYOND THE FIFTEEN</span><span class="small-counter" id="goalCount">0 / 10 成就</span></header>
+    <div class="page-heading hub-heading"><div class="eyebrow">新的机关 · 没有终点</div><h2>每次都有新挑战<span class="orange-dot">.</span></h2><p>读懂机关，选择路线，再跑得远一点。<br>独立挑战开放全部赛道，主线进度照常保留。</p></div>
+    <div class="challenge-content">
+      <button class="collection-entry" data-do="wardrobe"><span><strong>装扮收藏 · 机体与尾迹</strong><small id="collectionCount">成就解锁机体与尾迹 · 进入装扮收藏</small></span><svg><use href="#i-arrow"/></svg></button>
+      <article class="challenge-card expedition-card"><div class="card-kicker"><span>机关试炼</span><span>NEW · 15 ROUTES</span></div><h3>稳稳通过，还是冒险加分？</h3><p>移动高墙提前显示落点，周期闸门在接近前锁定状态。走普通晶体路线稳步推进，跳过危险路线的障碍，收集金色奖励额外加 200 分。</p><div class="mechanic-legend"><span>↔ 移动高墙</span><span>▥ 周期闸门</span><span>◆ 奖励路线</span></div><label class="field-label" for="trialLevel">选择机关赛道</label><select id="trialLevel" class="challenge-field"></select><div id="trialBest" class="challenge-record"></div><button class="primary-button" data-do="trial"><span>进入机关试炼</span><svg><use href="#i-arrow"/></svg></button></article>
+      <article class="challenge-card endless-card"><div class="card-kicker"><span>无限生存</span><span>NO FINISH LINE</span></div><h3>终点，由你刷新</h3><p>路线不断延伸，每 25 秒进入下一阶段，难度逐步上升至第 8 档。挑战距离与得分；暂停后可主动结束并保存成绩。</p><div id="endlessBest" class="challenge-record"></div><button class="primary-button" data-do="endless"><span>开始无限生存</span><svg><use href="#i-arrow"/></svg></button><p class="small-print">重试保留相同路线；选择「换一条路线」开启新组合。</p></article>
+      <article class="challenge-card daily-card"><div class="card-kicker"><span><i class="live-dot"></i> 每日挑战</span><span id="dailyDate"></span></div><h3 id="dailyTitle"></h3><p id="dailyDescription"></p><div id="dailyBest" class="challenge-record"></div><button class="primary-button" data-do="daily"><span>挑战今日赛道</span><svg><use href="#i-arrow"/></svg></button><div class="daily-code-row"><code id="dailyCode"></code><button class="text-button" data-do="copyDaily">复制挑战码 ↗</button></div></article>
+      <article class="challenge-card"><div class="card-kicker"><span>变式挑战</span><span>15 × 3</span></div><h3>打破熟悉的路线</h3><label class="field-label" for="variantLevel">选择赛道</label><select id="variantLevel" class="challenge-field"></select><div class="mode-options" role="group" aria-label="挑战模式"><button data-mode="mirror" aria-pressed="true">镜像</button><button data-mode="rush" aria-pressed="false">疾速</button><button data-mode="mirrorRush" aria-pressed="false">镜像疾速</button></div><p id="variantDescription"></p><div id="variantBest" class="challenge-record"></div><button class="secondary-button" data-do="variant"><span>开始变式挑战</span><svg><use href="#i-arrow"/></svg></button></article>
+      <article class="challenge-card"><div class="card-kicker"><span>朋友的挑战</span><span>SAME CODE · SAME TRACK</span></div><h3>这次，跑同一条赛道</h3><p>输入朋友给你的挑战码，即可打开相同路线与规则。成绩保存在各自设备，可手动互相比对。</p><label class="field-label" for="friendCode">挑战码</label><div class="friend-code-row"><input id="friendCode" class="challenge-field" type="text" maxlength="64" placeholder="例如 PR2-L05-M" autocomplete="off" autocapitalize="characters" spellcheck="false"><button class="code-open" data-do="importCode">打开</button></div><p id="codeError" class="code-error hidden" role="alert"></p><p class="small-print">离线挑战，无在线排行榜。挑战码分享路线，不传输存档。</p></article>
+      <div class="goals-heading"><div><div class="eyebrow">YOUR NEXT MILESTONE</div><h3>成长目标</h3></div><span id="goalTitle" class="tag"></span></div><div id="goalGrid" class="goal-grid"></div>
+      <div id="dailyHistory" class="daily-history"></div>
+    </div><footer class="page-footer">不限挑战次数。每一次突破，都算数。</footer>
+  </section>
+
+  <section id="wardrobe" class="screen page-screen hidden">
+    <header class="topbar"><button class="icon-button" data-do="hub" aria-label="返回挑战中心"><svg><use href="#i-left"/></svg></button><span class="eyebrow">EARN YOUR SIGNATURE</span><span class="small-counter" id="rewardCount">0 / 10 奖励</span></header>
+    <div class="page-heading wardrobe-heading"><div class="eyebrow">每一次突破，留下一份纪念</div><h2>装扮你的脉冲<span class="orange-dot">.</span></h2><p>用成就解锁机体与尾迹，自由搭配。<br>旧成绩自动计入，装扮只改变外观。</p></div>
+    <div class="wardrobe-content"><div class="wardrobe-preview"><canvas id="wardrobeCanvas" aria-label="当前装备的机体和尾迹预览"></canvas><div class="equipped-caption"><span>当前装备</span><strong id="equippedName"></strong></div></div><div class="collection-title"><h3>机体</h3><span>CHOOSE YOUR FORM</span></div><div id="skinGrid" class="reward-grid"></div><div class="collection-title"><h3>尾迹</h3><span>LEAVE YOUR TRACE</span></div><div id="trailGrid" class="reward-grid"></div><p class="collection-note">10 项成就各解锁一件奖励，没有额外消耗。练习不计成就；已有奖励永久保留。角色大小、碰撞判定与得分规则保持一致。</p></div>
+  </section>
+
+  <section id="controlsPage" class="screen page-screen hidden">
+    <header class="topbar comfort-return"><button class="icon-button" data-do="controlsBack" aria-label="返回"><svg><use href="#i-left"/></svg></button><span class="eyebrow">FIND YOUR FEEL</span><span class="small-counter">触控设置</span></header>
+    <div class="page-heading comfort-heading"><h2>调到顺手，再出发<span class="orange-dot">.</span></h2><p>按你的握持习惯调整。设置自动保存，<br>键盘操作和赛道难度保持一致。</p></div>
+    <div class="comfort-content"><div class="comfort-panel"><h3>按钮与位置</h3><label class="field-label" for="controlLayout">跳跃按钮位置</label><select id="controlLayout" class="comfort-select" data-control="layout"><option value="center">居中 · 原版布局</option><option value="left">靠左 · 左手跳跃</option><option value="right">靠右 · 右手跳跃</option></select><label class="field-label" for="controlSize">按钮大小</label><select id="controlSize" class="comfort-select" data-control="size"><option value="normal">标准</option><option value="large">加大 · 更容易点中</option></select><label class="field-label" for="controlLift">底部位置</label><select id="controlLift" class="comfort-select" data-control="lift"><option value="0">默认</option><option value="16">抬高一点</option><option value="32">进一步抬高</option></select><p>抬高后远离手机底部边缘，减少误触系统手势。</p></div>
+    <div class="comfort-panel"><h3>赛道手势</h3><button id="gesturesToggle" class="setting-row" data-control-toggle="gestures" role="switch" aria-checked="true"><span>滑动与轻触<small>关闭后只用底部按钮或键盘操作</small></span><i class="toggle on"></i></button><button id="tapJumpToggle" class="setting-row" data-control-toggle="tapJump" role="switch" aria-checked="true"><span>轻触赛道跳跃<small>可单独关闭，上滑跳跃仍然有效</small></span><i class="toggle on"></i></button><label class="field-label" for="controlSensitivity">滑动灵敏度</label><select id="controlSensitivity" class="comfort-select" data-control="sensitivity"><option value="sensitive">灵敏 · 小幅滑动即可</option><option value="normal">标准 · 原版手感</option><option value="steady">稳健 · 滑得更远再响应</option></select><p>每次滑动只执行一次操作；按住按钮不会连发。</p></div>
+    <div class="comfort-panel"><h3>在这里试试手感</h3><p>点按钮或在下方区域滑动、轻触，不计成绩。</p><div id="controlLab" class="lab-track" aria-label="触控试用区域"><span id="labShip" class="lab-ship">▲</span><small id="labFeedback" aria-live="polite">准备好了 · 试试变道和跳跃</small></div><div id="labControls" class="controls control-layout lab-controls"><button class="control-button" data-lab-action="left" aria-label="试用向左"><svg><use href="#i-left"/></svg><span>向左</span></button><button class="control-button jump-button" data-lab-action="jump" aria-label="试用跳跃"><svg><use href="#i-jump"/></svg><span>跳跃</span></button><button class="control-button" data-lab-action="right" aria-label="试用向右"><svg><use href="#i-right"/></svg><span>向右</span></button></div></div><button class="secondary-button" data-do="resetControls">恢复默认触控设置</button><button class="primary-button" data-do="controlsBack"><span>调好了，返回</span><svg><use href="#i-arrow"/></svg></button></div>
+  </section>
+
+  <section id="backupPage" class="screen page-screen hidden">
+    <header class="topbar comfort-return"><button class="icon-button" data-do="backupBack" aria-label="返回设置"><svg><use href="#i-left"/></svg></button><span class="eyebrow">TAKE YOUR PROGRESS</span><span class="small-counter">存档管理</span></header>
+    <div class="page-heading comfort-heading"><h2>把进度带着走<span class="orange-dot">.</span></h2><p>备份到文件，在电脑或安卓上导入继续玩。<br>包含成绩、成就、装扮、设置与已保存的影子。</p></div>
+    <div class="comfort-content"><div class="comfort-panel"><h3>本机进度</h3><div id="backupSummary" class="backup-summary"></div><p>不会保存正在进行的一局。换设备前先结束挑战，再导出备份。</p><div class="backup-buttons"><button data-do="exportBackup">导出备份文件</button><button data-do="showBackupText">查看备份文本</button></div><div id="backupExportPanel" class="hidden"><label class="field-label" for="backupExportText">可手动复制到另一台设备</label><textarea id="backupExportText" class="backup-text" readonly aria-label="导出的存档文本"></textarea><button class="secondary-button" data-do="copyBackup">复制完整备份</button></div></div>
+    <div id="backupStatus" class="backup-status" role="status" aria-live="polite"></div>
+    <div class="comfort-panel"><h3>导入已有备份</h3><p>选择文件或粘贴备份文本。先核对进度，再决定合并或替换；读取文件不会立刻改变存档。</p><button class="secondary-button" data-do="chooseBackup">选择备份文件</button><input id="backupFile" class="hidden" type="file" accept=".json,.txt,application/json,text/plain" tabindex="-1" aria-label="备份文件"><label class="field-label" for="backupImportText">或者粘贴完整备份文本</label><textarea id="backupImportText" class="backup-text" maxlength="200000" placeholder="粘贴导出的完整内容" spellcheck="false" aria-label="待导入的存档文本"></textarea><button class="primary-button" data-do="previewBackup"><span>检查并预览</span><svg><use href="#i-arrow"/></svg></button></div>
+    <div class="comfort-panel"><h3>导入前恢复点</h3><p id="recoveryDescription">每次导入前会自动保留本机存档，方便撤回最近一次导入。</p><button id="restoreBackup" class="secondary-button" data-do="restoreBackup" disabled>恢复导入前的进度</button></div><p class="comfort-note">手动备份，无需账号。电脑与安卓不会自动同步；保留最新的备份文件即可随时迁移。朋友挑战码只分享路线，请在这里使用存档文件。</p></div>
+  </section>
+
+  <section id="play" class="screen play-screen hidden">
+    <header class="game-topbar"><button class="icon-button" data-do="pause" aria-label="暂停游戏"><svg><use href="#i-pause"/></svg></button><div class="game-level"><span id="gameLevelNumber">SECTOR 01 / 15</span><strong id="gameLevelName">初醒</strong></div><div class="gem-counter"><svg><use href="#i-gem"/></svg><span id="gemCount">0</span><small id="gemTotal">/ 0</small></div></header>
+    <div class="progress-track"><span id="runProgress"></span><i id="bestMarker" title="历史最佳进度"></i></div>
+    <div class="game-arena"><canvas id="gameCanvas" aria-label="游戏赛道，使用底部按钮左右变道和跳跃"></canvas><div class="arena-label"><span id="gameSpeed">01 / TUNDRA</span><span id="runPercent">0%</span></div><div class="run-stats"><div><span class="tiny-label">SCORE</span><strong id="scoreCount">0</strong></div><span id="comboCount">收集晶体积累连击</span></div><div id="practiceBadge" class="practice-badge hidden">练习模式 · 不计成绩</div><div class="game-announcement" id="announcement"></div><div id="impactLabel" class="impact-label" aria-live="polite"></div><div id="mechanicHint" class="mechanic-hint" aria-live="off"></div><div class="lane-tutorial" id="laneHint">左右变道 · 点击中间跳跃</div></div>
+    <div class="control-deck"><div class="control-topline"><span id="jumpStatus"><i></i> <span id="jumpStatusText">跃迁就绪</span></span><span id="ghostComparison">看前方，跟上节奏</span></div><div class="controls"><button class="control-button" data-action="left" aria-label="向左变道"><svg><use href="#i-left"/></svg><span>向左</span></button><button class="control-button jump-button" data-action="jump" aria-label="跳跃"><svg><use href="#i-jump"/></svg><span>跳跃</span><span id="jumpCharge"></span></button><button class="control-button" data-action="right" aria-label="向右变道"><svg><use href="#i-right"/></svg><span>向右</span></button></div><div class="keyboard-hint">滑动即变道 · 轻触 / 上滑跳跃</div></div>
+    <div id="replayDeck" class="replay-deck hidden"><div class="replay-heading"><strong id="replayLabel">失败回放 · 0.5×</strong><span id="replayTime"></span></div><input id="replaySeek" class="replay-seek" type="range" min="0" max="6" step="0.01" value="0" aria-label="回放时间"><div class="replay-buttons"><button data-do="replayToggle" id="replayToggle">暂停回放</button><button data-do="replayRestart">从头回看</button><button data-do="replayRate" id="replayRate">切换 1×</button></div><button class="text-button" data-do="replayBack">返回结算</button></div>
+  </section>
+  <div id="overlay" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div id="modal" class="modal"></div></div>
+  <div id="toast" role="status" class="toast"></div>
+</div>
+<script src="levels.js"></script><script src="engine.js"></script><script src="challenges.js"></script><script src="expedition.js"></script><script src="replay.js"></script><script src="rewards.js"></script><script src="controls.js"></script><script src="profile.js"></script><script src="backup.js"></script><script src="audio.js"></script><script src="renderer.js"></script><script src="game.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+.home-actions { display:grid; grid-template-columns:1.08fr 1fr; gap:9px; }
+.home-actions .secondary-button { padding:0 12px; gap:7px; font-size:12px; letter-spacing:0; }
+.home-actions .button-note { font-size:9px; letter-spacing:0; }
+.challenge-entry { color:var(--mint); border-color:#4b603e; }
+.hub-heading { padding-top:20px; padding-bottom:5px; }
+.hub-heading h2 { font-size:26px; }
+.challenge-content { padding:0 24px; }
+.challenge-card { padding:20px; margin:16px 0; background:#18221c; border:1px solid var(--line); border-radius:12px; }
+.daily-card { background:linear-gradient(135deg,#283725,#18221c 75%); border-color:#506543; }
+.card-kicker { display:flex; align-items:center; justify-content:space-between; font-size:9px; letter-spacing:.8px; color:var(--muted); }
+.daily-card .card-kicker { color:var(--mint); }
+.challenge-card h3 { font-size:19px; font-weight:600; margin:15px 0 10px; letter-spacing:.5px; }
+.challenge-card p { font-size:11px; color:var(--muted); line-height:1.9; margin:10px 0; }
+.challenge-card .primary-button { height:48px; margin-top:17px; font-size:13px; }
+.challenge-card .secondary-button { height:46px; margin-top:14px; justify-content:space-between; font-size:12px; }
+.challenge-card .secondary-button svg { width:20px; }
+.challenge-record { min-height:18px; color:#d3ddb7; font-size:11px; letter-spacing:.3px; }
+.daily-code-row { display:flex; align-items:center; justify-content:space-between; margin-top:13px; gap:8px; }
+.daily-code-row code { color:var(--muted); font-size:11px; }
+.daily-code-row .text-button { min-height:36px; }
+.field-label { display:block; color:var(--muted); font-size:10px; margin:15px 0 8px; }
+.challenge-field { width:100%; min-height:44px; border-radius:7px; border:1px solid #3b4e3c; background:#101914; color:var(--ink); font:inherit; font-size:12px; padding:10px 12px; outline-offset:2px; user-select:text; -webkit-user-select:text; }
+.challenge-field:focus-visible { outline:2px solid var(--mint); }
+.mode-options { display:grid; grid-template-columns:1fr 1fr 1.25fr; gap:6px; margin-top:12px; }
+.mode-options button { min-height:44px; padding:8px 2px; font-size:11px; background:transparent; border:1px solid var(--line); border-radius:7px; color:var(--muted); }
+.mode-options button[aria-pressed="true"] { color:#122219; background:var(--mint); border-color:var(--mint); font-weight:600; }
+.friend-code-row { display:flex; gap:8px; }
+.friend-code-row input { min-width:0; font-family:Bahnschrift,monospace; font-size:13px; }
+.code-open { flex-shrink:0; border-radius:7px; min-height:44px; min-width:58px; background:var(--mint); color:#152515; font-size:12px; }
+.challenge-card p.small-print { font-size:10px; margin:13px 0 0; color:#7e8c79; }
+.challenge-card p.code-error { color:#ffab8e; margin-bottom:0; }
+.goals-heading { display:flex; align-items:center; justify-content:space-between; margin:30px 0 16px; }
+.goals-heading h3 { margin:9px 0 0; font-size:22px; font-weight:500; }
+.goal-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.goal-card { border:1px solid var(--line); border-radius:9px; padding:14px 12px; background:#17201b; }
+.goal-card.earned { border-color:#506744; background:#22301f; }
+.goal-top { display:flex; align-items:center; justify-content:space-between; color:var(--muted); }
+.goal-top svg { width:17px; height:17px; }
+.goal-top span { font-family:Bahnschrift,monospace; font-size:11px; }
+.goal-card.earned .goal-top { color:var(--mint); }
+.goal-card.earned svg { fill:var(--mint); }
+.goal-card h4 { margin:11px 0 7px; font-size:13px; font-weight:500; }
+.goal-card p { font-size:10px; line-height:1.7; color:var(--muted); margin:0; min-height:34px; }
+.goal-meter { height:3px; margin-top:13px; background:#35412f; border-radius:3px; overflow:hidden; }
+.goal-meter>span { display:block; height:100%; background:var(--mint); }
+.daily-history { border-top:1px solid var(--line); margin-top:28px; padding-top:15px; }
+.daily-history h3 { font-weight:500; font-size:13px; margin:0 0 13px; }
+.history-row { display:flex; justify-content:space-between; align-items:center; padding:10px 0; font-size:10px; color:var(--muted); gap:8px; }
+.history-row strong { color:var(--ink); font-size:12px; font-weight:500; }
+.mode-description { color:#d4dda9!important; }
+.session-code { background:#111a16; border:1px solid var(--line); padding:11px; border-radius:7px; margin-top:17px; }
+.session-code label { color:var(--muted); font-size:9px; display:block; margin-bottom:7px; }
+.session-code-row { display:flex; align-items:center; gap:8px; }
+.session-code input { min-width:0; flex:1; background:transparent; color:var(--mint); border:0; font-family:Bahnschrift,monospace; font-size:13px; width:100%; user-select:text; -webkit-user-select:text; }
+.session-code button { background:#2b3b26; color:var(--mint); padding:8px 11px; min-height:36px; font-size:10px; border-radius:5px; }
+.goal-unlock { color:var(--mint); font-size:11px; padding:11px; background:#2c3e2466; border-radius:6px; margin-top:15px; line-height:1.7; }
+.modal .challenge-context { font-size:10px; line-height:1.7; margin-bottom:13px; color:#a7b398; }
+@media(max-width:370px) {
+  .challenge-content { padding:0 20px; }
+  .challenge-card { padding:17px; }
+  .home-actions .secondary-button { padding:0 10px; font-size:11px; }
+  .home-actions svg { width:16px; }
+  .goal-card { padding:13px 10px; }
+}
